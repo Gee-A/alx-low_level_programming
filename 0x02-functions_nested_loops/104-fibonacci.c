@@ -20,19 +20,19 @@ int main(void)
 		j = k - j;
 	}
 
-	l = 1000000000;
+	l = 10000000000;
 	j1 = j / l;
 	j2 = j % l;
 	k1 = k / l;
 	k2 = k % l;
 
-	for (i = 92; i < 99; ++i)
+	for (i = 91; i < 98; ++i)
 	{
 		printf(", %lu", k1 + (k2 / l));
 		printf("%lu", k2 % l);
-		k1 = k1 + j1;
+		k1 += j1;
 		j1 = k1 - j1;
-		k2 = k2 + j2;
+		k2 += j2;
 		j2 = k2 - j2;
 	}
 	printf("\n");
