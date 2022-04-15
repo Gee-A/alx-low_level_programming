@@ -1,4 +1,4 @@
- #include <stdio.h>
+#include <stdio.h>
 
 /**
  * main - Entry Point
@@ -12,12 +12,12 @@ int main(void)
 	{
 		if ((i % 3) == 0 || (i % 5) == 0)
 		{
-			if (i % 3 == 0)
-				printf("Fizz ");
+			if (i % 3 == 0 && i % 5 == 0)
+				printf("FizzBuzz ");
 			else if (i % 5 == 0)
 				printf("Buzz ");
 			else
-				printf("FizzBuzz ");
+				printf("Fizz ");
 		}
 		else
 			printf("%d ", i);
