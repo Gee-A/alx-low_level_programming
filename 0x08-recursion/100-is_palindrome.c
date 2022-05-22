@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _str_recursion - size
+ * _strlen_recursion - size
  * @s: pointer to string params
  * Return: recursion
  */
 
-int _str_recursion(char *s)
+int _strlen_recursion(char *s)
 {
 	if (!*s)
 		return (0);
