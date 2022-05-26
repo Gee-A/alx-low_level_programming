@@ -58,7 +58,7 @@ char **strtow(char *str)
 				break;
 			}
 		}
-		for (j = 0; a1 <= c; al++, j++)
+		for (j = 0; al <= c; al++, j++)
 			aout[i][j] = str[al];
 		aout[i][j] = '\0';
 	}
