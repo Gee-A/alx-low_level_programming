@@ -8,7 +8,7 @@
  * Return: void
  */
 
-void  _print(char *str, int l)
+void _print(char *str, int l)
 {
 	int i, j;
 
@@ -45,7 +45,7 @@ char *mul(char n, char *num, int num_index, char *dest, int dest_index)
 		mul = (n - '0') * (num[j] - '0') + mulrem;
 		mulrem = mul / 10;
 		add = (dest[k] - '0') + (mul % 10) + addrem;
-		adrem = add / 10;
+		addrem = add / 10;
 		dest[k] = add % 10 + '0';
 	}
 	for (addrem += mulrem; k >= 0 && addrem; k--)
@@ -74,8 +74,8 @@ int check_for_digits(char **av)
 	{
 		for (j = 0; av[i][j]; j++)
 		{
-			if (av[i][j] < '0' || av[i][j]  '9')
-				return (1)
+			if (av[i][j] < '0' || av[i][j] > '9')
+				return (1);
 		}
 	}
 	return (0);
