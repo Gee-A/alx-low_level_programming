@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file\n");
 		exit(97); }
-	fd = open(arg[1], O_RDWR);
+	fd = open(argv[1], O_RDWR);
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't open from file %s\n", argv[1]);
