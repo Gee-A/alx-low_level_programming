@@ -3,7 +3,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include  "main.h"
+#include "main.h"
 #include <unistd.h>
 
 /**
@@ -31,11 +31,11 @@ int main(int argc, char *argv[])
 	fd2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	if (fd2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: CAn't write to %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99); }
 	while (sz == 1024)
 	{
-		sz = read(fd, buf, f1024);
+		sz = read(fd, buf, 1024);
 		if (sz == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
