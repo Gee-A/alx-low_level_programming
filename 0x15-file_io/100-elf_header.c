@@ -98,14 +98,12 @@ void print_data(unsigned char *e_ident)
 		case ELFDATANONE:
 			printf("none\n");
 			break;
-		case ELFCLASS32:
-			printf("ELF32\n");
-			break;
 		case ELFDATA2LSB:
 			printf("2's complement, little endian\n");
 			break;
 		case ELFDATA2MSB:
 			printf("2's complement, big endian\n");
+			break;
 		default:
 			printf("<unknown: %x>\n", e_ident[EI_CLASS]);
 	}
@@ -176,6 +174,15 @@ void print_osabi(unsigned char *e_ident)
 			printf("<unknown: %x>\n", e_ident[EI_OSABI]);
 	}
 }
+/**
+ * print_abi - Prints the ABI version of an ELF header.
+ * @e_ident: A pointer to an arry containing the ELF ABI version.
+ */
+void print_abi(unsigned char *e_ident)
+{
+	printf("  ABI Version:				%d\n",
+			e_ident[EI_ABIVERSION]);
+}
 
 /**
  * print_type - Prints the type of an ELF header.
@@ -222,7 +229,7 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
-		e_entry == ((e_entry << 8) & 0xFF00FF00) |
+		e_entry = ((e_entry << 8) & 0xFF00FF00) |
 			((e_entry >> 8) & 0xFF00FF);
 		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
@@ -255,7 +262,7 @@ void close_elf(int elf)
  * Description: If file is not ELFfile ro the function fail - exit code 98
  */
 
-int main(int argc, char *argv[])
+int main(int __attribute__((__unused__)) argc, char *argv[])
 {
 	Elf64_Ehdr *header;
 	int o, r;
@@ -287,7 +294,7 @@ int main(int argc, char *argv[])
 	print_magic(header->e_ident);
 	print_class(header->e_ident);
 	print_data(header->e_ident);
-	print_version(haeder->e_ident);
+	print_version(header->e_ident);
 	print_osabi(header->e_ident);
 	print_abi(header->e_ident);
 	print_type(header->e_type, header->e_ident);
