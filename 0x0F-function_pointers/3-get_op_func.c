@@ -1,5 +1,6 @@
 #include "3-calc.h"
 #include <stdio.h>
+#include <string.h>
 
 /**
  * get_op_func - Compares function with pointer and returns the equal.
@@ -22,7 +23,7 @@ int (*get_op_func(char *s))(int, int)
 
 	while (ops[i].op != NULL)
 	{
-		if (ops[i].op == s)
+		if (!strcmp(ops[i].op, s))
 			return (ops[i].f);
 		i++;
 	}
