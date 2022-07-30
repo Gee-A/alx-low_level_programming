@@ -1,46 +1,53 @@
 #include "hash_tables.h"
 
 /**
- * print_list - iterate through a node
- * @hn: a hash node
- * @started: represents a flags that indicates if a list print has started
- *
- * Return: @started to updated the caller function.
+ * print_list - prints all the elements of a linked list
+ * @h: pointer to the hash_node_t list to print
  */
-int print_list(hash_node_t *hn, int started)
+void print_list(hash_node_t *h)
 {
-	while (hn)
+	while (h)
 	{
-		if (started == 0)
-		{
-			printf("'%s': '%s'", hn->key, hn->value);
-			started = 1;
-		}
-		else
-			printf(", '%s': '%s'", hn->key, hn->value);
-		hn = hn->next;
+		printf("'%s': '%s'", h->key, h->value);
+		if (h->next)
+			printf(", ");
+		h = h->next;
 	}
-	return (started);
 }
 
 /**
  * hash_table_print - prints a hash table
- * @ht: a hash table
+ * @ht: hash table to print
  */
 void hash_table_print(const hash_table_t *ht)
 {
-	int started = 0;
 	unsigned long int i;
+	hash_node_t *node = NULL;
+	char *last_key = NULL;
+	unsigned long int index;
 
 	if (!ht)
 		return;
 
-	putchar('{');
-
 	for (i = 0; i < ht->size; i++)
 	{
 		if (ht->array[i] != NULL)
-			started = print_list(ht->array[i], started);
+			node = ht->array[i];
 	}
-	puts("}\n");
+
+	printf("{");
+
+	if (node)
+	{
+		last_key = node->key;
+		index = key_index((const unsigned char *)last_key, ht->size);
+		for (i = 0; i < ht->size; i++)
+		{
+			print_list(ht->array[i]);
+			if (ht->array[i] && i < index)
+				printf(", ");
+		}
+	}
+
+	printf("}\n");
 }
