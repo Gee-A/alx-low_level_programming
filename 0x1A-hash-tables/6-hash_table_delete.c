@@ -12,7 +12,7 @@ void free_node(hash_node_t *hn)
 		free(hn->value);
 		if (hn->next)
 			free_node(hn->next);
-		free(hn);        
+		free(hn);
 	}
 }
 

@@ -9,7 +9,7 @@
  */
 int print_list(hash_node_t *hn, int started)
 {
-	while(hn)
+	while (hn)
 	{
 		if (started == 0)
 		{

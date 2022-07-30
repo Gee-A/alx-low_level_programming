@@ -2,7 +2,7 @@
 
 /**
  * hash_table_create - creates or initiatiate a hash_table
- * size: determine the size of the array (i.e numbers of node to be created)
+ * @size: determine the size of the array (i.e numbers of node to be created)
  *
  * Return: New hast_table and NULL if not successful.
  */
