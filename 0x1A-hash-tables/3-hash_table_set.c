@@ -1,20 +1,6 @@
 #include "hash_tables.h"
 
 /**
- * free_node - frees a node
- * @hn: pointer to the node to free
- */
-void free_node(hash_node_t *hn)
-{
-	if (hn)
-	{
-		free(hn->key);
-		free(hn->value);
-		free(hn);
-	}
-}
-
-/**
  * hash_table_set - adds a hash_node to the hash_table using the key
  * @ht: hash_table contain array of hash_nodes
  * @key: key is used to generate hash index and to ensure uniqueness

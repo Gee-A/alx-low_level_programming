@@ -3,21 +3,21 @@
 
 /**
  * struct hash_node_s - Node of a hash table
- * 
+ *
  * @key: The key (string) is unique in the HashTable
  * @value: The value corresponding to a key
  * @next: A pointer to the next node of the list (chaining case)
  */
 typedef struct hash_node_s
 {
-    char *key;
-    char *value;
-    struct hash_node_s *next;
+	char *key;
+	char *value;
+	struct hash_node_s *next;
 } hash_node_t;
 
 /**
  * struct hash_table_s - Hash table data structure
- * 
+ *
  * @size: The size of the array
  * @array: An array of hash_node of size @size
  * Each cell of this array is a pointer to the first node of a linked list.
@@ -25,8 +25,8 @@ typedef struct hash_node_s
  */
 typedef struct hash_table_s
 {
-    unsigned long int size;
-    hash_node_t **array;
+	unsigned long int size;
+	hash_node_t **array;
 } hash_table_t;
 
 
@@ -45,5 +45,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key);
 void hash_table_print(const hash_table_t *ht);
 void hash_table_delete(hash_table_t *ht);
 
+/* helper function */
+void free_node(hash_node_t *hn);
 
 #endif /* _HASH_FUNC_H */
