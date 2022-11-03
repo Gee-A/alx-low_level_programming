@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+int help_binary(int *array, int value, size_t lo, size_t hi);
+void array_print(int *array, size_t lo, size_t hi);
 /**
  * exponential_search - searches for a value in an array with
  * the exponential search algorithm
