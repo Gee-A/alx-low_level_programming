@@ -1,4 +1,4 @@
-#incude <stdio.h>
+#include <stdio.h>
 
 /**
  * advanced_binary - searches for a value in an array of
