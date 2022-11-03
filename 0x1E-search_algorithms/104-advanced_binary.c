@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+int help_binary(int *array, int value, size_t lo, size_t hi);
+void array_print(int *array, size_t lo, size_t hi);
+
 /**
  * advanced_binary - searches for a value in an array of
  * integers using the Binary search algorithm
